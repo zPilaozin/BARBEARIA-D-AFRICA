@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D'AFRICA | Barbearia Premium</title>
+  <meta name="description" content="D'AFRICA Barbearia Premium. Cortes, barba, sobrancelha, pigmentação e cuidado masculino com presença." />
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: "#C9A66B",
+            goldLight: "#F4D88B",
+            bronze: "#8B623D",
+            sapphire: "#063A8C",
+            cyanGlow: "#55E7FF",
+            darkBg: "#06070B",
+            darkCard: "#101018",
+            wood: "#21150F",
+            offWhite: "#F7EFE4"
+          },
+          fontFamily: {
+            display: ["Playfair Display", "serif"],
+            body: ["DM Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"DM Sans",sans-serif;
+      color:#F7EFE4;
+      background:
+        radial-gradient(circle at 72% 12%,rgba(85,231,255,.16),transparent 26%),
+        radial-gradient(circle at 40% 8%,rgba(6,58,140,.20),transparent 30%),
+        linear-gradient(135deg,#06070B 0%,#101018 38%,#21150F 75%,#050506 100%);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none}
+    ::selection{background:#C9A66B;color:#06070B}
+
+    .geo-bg{position:relative;overflow:hidden}
+    .geo-bg::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:.055;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg width='72' height='72' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 4L68 36L36 68L4 36Z' fill='none' stroke='%23C9A66B' stroke-width='.55'/%3E%3Ccircle cx='36' cy='36' r='15' fill='none' stroke='%2355E7FF' stroke-width='.35'/%3E%3C/svg%3E");
+      background-size:72px 72px;
+      animation:geoMove 46s linear infinite;
+    }
+    @keyframes geoMove{to{background-position:72px 72px}}
+
+    .nav-scrolled{
+      background:rgba(6,7,11,.9)!important;
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(201,166,107,.16);
+      box-shadow:0 12px 38px rgba(0,0,0,.48);
+    }
+
+    .hero-orb{
+      position:absolute;
+      left:50%;
+      bottom:5%;
+      width:min(540px,76vw);
+      aspect-ratio:1;
+      transform:translateX(-50%);
+      border-radius:50%;
+      pointer-events:none;
+      opacity:.38;
+      background:
+        radial-gradient(circle at 50% 42%,rgba(85,231,255,.34),transparent 7%),
+        radial-gradient(circle at 50% 42%,rgba(15,99,216,.42),transparent 31%),
+        conic-gradient(from 210deg,transparent 0 16%,rgba(201,166,107,.46) 23%,transparent 35%,rgba(85,231,255,.23) 45%,transparent 62%,rgba(201,166,107,.38) 74%,transparent 100%);
+      animation:sealBreath 7s ease-in-out infinite;
+      filter:blur(.2px);
+    }
+    @keyframes sealBreath{
+      0%,100%{opacity:.24;transform:translateX(-50%) scale(.96) rotate(0deg)}
+      50%{opacity:.52;transform:translateX(-50%) scale(1.03) rotate(2deg)}
+    }
+
+    .title-shimmer{
+      background:linear-gradient(90deg,#8B623D,#F4D88B,#fff7dd,#55E7FF,#0F63D8,#F4D88B);
+      background-size:240% auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      animation:shimmer 7s linear infinite;
+      text-shadow:0 0 34px rgba(85,231,255,.13);
+    }
+    @keyframes shimmer{
+      0%,100%{background-position:-200% center}
+      50%{background-position:200% center}
+    }
+
+    .fade-up{
+      opacity:0;
+      transform:translateY(34px);
+      transition:opacity .75s ease,transform .75s ease;
+    }
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+    .delay-1{transition-delay:.12s}
+    .delay-2{transition-delay:.24s}
+    .delay-3{transition-delay:.36s}
+    .delay-4{transition-delay:.48s}
+    .delay-5{transition-delay:.60s}
+
+    .btn-premium{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,244,203,.34);
+      background:linear-gradient(135deg,#F4D88B,#C9A66B 45%,#8B623D);
+      color:#071018;
+      box-shadow:0 14px 36px rgba(0,0,0,.35),0 0 0 1px rgba(85,231,255,.05);
+      transition:transform .25s ease,box-shadow .25s ease;
+    }
+    .btn-premium:hover{
+      transform:translateY(-3px) scale(1.025);
+      box-shadow:0 18px 44px rgba(0,0,0,.5),0 0 28px rgba(85,231,255,.22),0 0 32px rgba(201,166,107,.25);
+    }
+    .btn-premium::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+      transform:translateX(-120%);
+      transition:transform .55s ease;
+    }
+    .btn-premium:hover::after{transform:translateX(120%)}
+
+    .card-premium{
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01)),
+        linear-gradient(135deg,rgba(16,16,24,.96),rgba(34,21,15,.86));
+      border:1px solid rgba(201,166,107,.14);
+      box-shadow:0 16px 45px rgba(0,0,0,.28);
+      transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+    }
+    .card-premium:hover{
+      transform:translateY(-6px);
+      border-color:rgba(85,231,255,.36);
+      box-shadow:0 22px 58px rgba(0,0,0,.52),0 0 28px rgba(85,231,255,.1);
+    }
+    .card-premium:hover .card-icon{
+      color:#55E7FF;
+      transform:scale(1.12) rotate(-3deg);
+    }
+    .card-icon{transition:.28s ease}
+
+    .gold-line{
+      width:74px;
+      height:2px;
+      margin:0 auto 1.35rem;
+      background:linear-gradient(90deg,transparent,#55E7FF,#F4D88B,transparent);
+      box-shadow:0 0 18px rgba(85,231,255,.35);
+    }
+
+    .gallery-tile{
+      min-height:220px;
+      border:1px solid rgba(201,166,107,.14);
+      background:
+        radial-gradient(circle at 50% 38%,rgba(85,231,255,.14),transparent 24%),
+        linear-gradient(135deg,#12121A,#2A1B13);
+      overflow:hidden;
+      transition:transform .35s ease,border-color .35s ease;
+    }
+    .gallery-tile:hover{
+      transform:scale(1.025);
+      border-color:rgba(85,231,255,.35);
+    }
+
+    .wa-float{
+      animation:waPulse 2.6s ease infinite;
+      box-shadow:0 18px 45px rgba(31,211,109,.24),0 0 24px rgba(85,231,255,.16);
+    }
+    @keyframes waPulse{
+      0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.38),0 18px 45px rgba(31,211,109,.24)}
+      50%{box-shadow:0 0 0 14px rgba(37,211,102,0),0 18px 45px rgba(31,211,109,.24)}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+      .fade-up{opacity:1;transform:none}
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-full border border-gold/50 grid place-items-center text-gold font-display font-black">D</span>
+        <span class="font-display text-xl sm:text-2xl font-black text-gold tracking-wider">D'AFRICA</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#servicos" class="text-sm text-offWhite/70 hover:text-gold transition">Serviços</a>
+        <a href="#diferenciais" class="text-sm text-offWhite/70 hover:text-gold transition">Diferenciais</a>
+        <a href="#galeria" class="text-sm text-offWhite/70 hover:text-gold transition">Galeria</a>
+        <a href="#depoimentos" class="text-sm text-offWhite/70 hover:text-gold transition">Depoimentos</a>
+        <a data-whatsapp class="btn-premium px-5 py-2 rounded text-sm font-black">Agendar</a>
+      </div>
+
+      <button id="menuBtn" class="md:hidden text-gold" aria-label="Abrir menu">
+        <i data-lucide="menu" style="width:30px;height:30px"></i>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-darkBg/95 backdrop-blur-xl border-t border-gold/10">
+      <div class="px-6 py-6 flex flex-col gap-5">
+        <a href="#servicos" class="mobile-link text-offWhite/80">Serviços</a>
+        <a href="#diferenciais" class="mobile-link text-offWhite/80">Diferenciais</a>
+        <a href="#galeria" class="mobile-link text-offWhite/80">Galeria</a>
+        <a href="#depoimentos" class="mobile-link text-offWhite/80">Depoimentos</a>
+        <a data-whatsapp class="btn-premium text-center px-5 py-3 rounded font-black">Agendar pelo WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="inicio" class="geo-bg relative min-h-screen flex items-center px-4 sm:px-6 pt-24 pb-16">
+      <div class="hero-orb"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(85,231,255,.08),transparent_42%)]"></div>
+
+      <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <div class="fade-up visible">
+          <span class="inline-block text-xs sm:text-sm tracking-[.35em] uppercase text-gold/75 font-bold border border-gold/20 px-4 py-2 rounded-full">
+            Barbearia Premium
+          </span>
+        </div>
+
+        <h1 class="fade-up visible delay-1 font-display text-6xl sm:text-8xl lg:text-9xl font-black title-shimmer leading-none mt-7 mb-6">
+          D'AFRICA
+        </h1>
+
+        <p class="fade-up visible delay-2 text-lg sm:text-2xl text-offWhite/78 max-w-2xl mx-auto font-semibold leading-relaxed">
+          Estilo, presença e cuidado em uma experiência premium de barbearia.
+        </p>
+
+        <p class="fade-up visible delay-2 text-sm sm:text-base text-offWhite/45 max-w-xl mx-auto mt-4 mb-10">
+          Cortes precisos, barba alinhada e acabamento no detalhe para quem leva imagem pessoal a sério.
+        </p>
+
+        <div class="fade-up visible delay-3 flex flex-col sm:flex-row gap-4 justify-center">
+          <a data-whatsapp class="btn-premium px-8 py-4 rounded font-black text-sm sm:text-base inline-flex items-center justify-center gap-2">
+            <i data-lucide="message-circle" style="width:19px;height:19px"></i>
+            Agendar pelo WhatsApp
+          </a>
+          <a href="#servicos" class="border border-gold/40 text-gold px-8 py-4 rounded font-black text-sm sm:text-base inline-flex items-center justify-center gap-2 hover:bg-gold/10 transition">
+            Ver serviços
+            <i data-lucide="chevron-down" style="width:18px;height:18px"></i>
+          </a>
+        </div>
+
+        <div class="fade-up visible delay-4 mt-16 flex items-center justify-center gap-5 sm:gap-8 text-offWhite/35 text-xs tracking-widest uppercase">
+          <span>Estilo</span>
+          <span class="w-1 h-1 rounded-full bg-cyanGlow/70"></span>
+          <span>Presença</span>
+          <span class="w-1 h-1 rounded-full bg-cyanGlow/70"></span>
+          <span>Cuidado</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="geo-bg relative py-20 sm:py-28 px-4 sm:px-6">
+      <div class="relative z-10 max-w-6xl mx-auto">
+        <div class="text-center mb-14 fade-up">
+          <span class="text-xs tracking-[.3em] uppercase text-gold/65 font-bold">O que oferecemos</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-black text-offWhite mt-3 mb-4">Nossos Serviços</h2>
+          <div class="gold-line"></div>
+          <p class="text-offWhite/52 max-w-lg mx-auto">Cada serviço foi pensado para entregar presença, precisão e confiança.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <article class="card-premium fade-up rounded-xl p-7 text-center">
+            <div class="card-icon w-14 h-14 mx-auto mb-5 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+              <i data-lucide="scissors"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2">Corte Masculino</h3>
+            <p class="text-offWhite/48 text-sm leading-relaxed">Técnica precisa, caimento natural e acabamento limpo para seu estilo.</p>
+          </article>
+
+          <article class="card-premium fade-up delay-1 rounded-xl p-7 text-center">
+            <div class="card-icon w-14 h-14 mx-auto mb-5 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+              <i data-lucide="badge-check"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2">Barba Completa</h3>
+            <p class="text-offWhite/48 text-sm leading-relaxed">Desenho, alinhamento, toalha quente e finalização para barba marcante.</p>
+          </article>
+
+          <article class="card-premium fade-up delay-2 rounded-xl p-7 text-center">
+            <div class="card-icon w-14 h-14 mx-auto mb-5 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+              <i data-lucide="crown"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2">Corte + Barba</h3>
+            <p class="text-offWhite/48 text-sm leading-relaxed">O combo completo para renovar o visual com harmonia e presença.</p>
+          </article>
+
+          <article class="card-premium fade-up delay-3 rounded-xl p-7 text-center">
+            <div class="card-icon w-14 h-14 mx-auto mb-5 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+              <i data-lucide="eye"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2">Sobrancelha</h3>
+            <p class="text-offWhite/48 text-sm leading-relaxed">Limpeza e design para deixar o rosto mais definido sem exagero.</p>
+          </article>
+
+          <article class="card-premium fade-up delay-4 rounded-xl p-7 text-center">
+            <div class="card-icon w-14 h-14 mx-auto mb-5 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+              <i data-lucide="pen-tool"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2">Pigmentação</h3>
+            <p class="text-offWhite/48 text-sm leading-relaxed">Mais densidade, definição e acabamento para barba ou cabelo.</p>
+          </article>
+
+          <article class="card-premium fade-up delay-5 rounded-xl p-7 text-center">
+            <div class="card-icon w-14 h-14 mx-auto mb-5 rounded-full bg-gold/10 flex items-center justify-center text-gold">
+              <i data-lucide="droplets"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2">Hidratação</h3>
+            <p class="text-offWhite/48 text-sm leading-relaxed">Tratamento para cabelo mais saudável, macio e com brilho natural.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferenciais" class="relative py-20 sm:py-28 px-4 sm:px-6 bg-[linear-gradient(180deg,#0B0B10,#06070B)]">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14 fade-up">
+          <span class="text-xs tracking-[.3em] uppercase text-gold/65 font-bold">Por que nos escolher</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-black mt-3 mb-4">Diferenciais</h2>
+          <div class="gold-line"></div>
+          <p class="text-offWhite/52 max-w-xl mx-auto">Mais do que cortar cabelo: uma experiência para sair pronto, confiante e alinhado.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="card-premium fade-up rounded-xl p-6 flex gap-4">
+            <i data-lucide="user-check" class="text-gold flex-shrink-0"></i>
+            <div><h3 class="font-bold mb-1">Atendimento Personalizado</h3><p class="text-offWhite/45 text-sm">A gente entende seu estilo antes de começar.</p></div>
+          </div>
+          <div class="card-premium fade-up delay-1 rounded-xl p-6 flex gap-4">
+            <i data-lucide="award" class="text-gold flex-shrink-0"></i>
+            <div><h3 class="font-bold mb-1">Profissionais Experientes</h3><p class="text-offWhite/45 text-sm">Técnica, olhar estético e acabamento premium.</p></div>
+          </div>
+          <div class="card-premium fade-up delay-2 rounded-xl p-6 flex gap-4">
+            <i data-lucide="sofa" class="text-gold flex-shrink-0"></i>
+            <div><h3 class="font-bold mb-1">Ambiente Confortável</h3><p class="text-offWhite/45 text-sm">Espaço elegante para relaxar e cuidar da imagem.</p></div>
+          </div>
+          <div class="card-premium fade-up delay-3 rounded-xl p-6 flex gap-4">
+            <i data-lucide="clock" class="text-gold flex-shrink-0"></i>
+            <div><h3 class="font-bold mb-1">Pontualidade</h3><p class="text-offWhite/45 text-sm">Horário respeitado e atendimento sem correria.</p></div>
+          </div>
+          <div class="card-premium fade-up delay-4 rounded-xl p-6 flex gap-4">
+            <i data-lucide="sparkles" class="text-gold flex-shrink-0"></i>
+            <div><h3 class="font-bold mb-1">Acabamento Impecável</h3><p class="text-offWhite/45 text-sm">Detalhes que fazem diferença no resultado final.</p></div>
+          </div>
+          <div class="card-premium fade-up delay-5 rounded-xl p-6 flex gap-4">
+            <i data-lucide="gem" class="text-gold flex-shrink-0"></i>
+            <div><h3 class="font-bold mb-1">Experiência Premium</h3><p class="text-offWhite/45 text-sm">Do atendimento à finalização, tudo com presença.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="geo-bg relative py-20 sm:py-28 px-4 sm:px-6">
+      <div class="relative z-10 max-w-6xl mx-auto">
+        <div class="text-center mb-14 fade-up">
+          <span class="text-xs tracking-[.3em] uppercase text-gold/65 font-bold">Nosso trabalho</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-black mt-3 mb-4">Galeria</h2>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div class="gallery-tile fade-up rounded-xl grid place-items-center text-center p-6">
+            <i data-lucide="scissors" class="text-cyanGlow/45 mb-3"></i><span class="text-offWhite/45 text-sm">Corte Fade</span>
+          </div>
+          <div class="gallery-tile fade-up delay-1 rounded-xl grid place-items-center text-center p-6">
+            <i data-lucide="badge-check" class="text-cyanGlow/45 mb-3"></i><span class="text-offWhite/45 text-sm">Barba Alinhada</span>
+          </div>
+          <div class="gallery-tile fade-up delay-2 rounded-xl grid place-items-center text-center p-6">
+            <i data-lucide="pen-tool" class="text-cyanGlow/45 mb-3"></i><span class="text-offWhite/45 text-sm">Detalhes</span>
+          </div>
+          <div class="gallery-tile fade-up delay-3 rounded-xl grid place-items-center text-center p-6 lg:col-span-2">
+            <i data-lucide="crown" class="text-cyanGlow/45 mb-3"></i><span class="text-offWhite/45 text-sm">Experiência D'AFRICA</span>
+          </div>
+          <div class="gallery-tile fade-up delay-4 rounded-xl grid place-items-center text-center p-6">
+            <i data-lucide="droplets" class="text-cyanGlow/45 mb-3"></i><span class="text-offWhite/45 text-sm">Tratamento</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="relative py-20 sm:py-28 px-4 sm:px-6 bg-[linear-gradient(180deg,#06070B,#0B0B10)]">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14 fade-up">
+          <span class="text-xs tracking-[.3em] uppercase text-gold/65 font-bold">O que dizem</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-black mt-3 mb-4">Depoimentos</h2>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <article class="card-premium fade-up rounded-xl p-7">
+            <div class="text-gold/25 font-display text-6xl leading-none">"</div>
+            <p class="text-offWhite/62 text-sm mb-6">Atendimento impecável, ambiente diferenciado e corte sempre no detalhe.</p>
+            <strong>Rafael M.</strong><p class="text-offWhite/35 text-xs">Cliente frequente</p>
+          </article>
+          <article class="card-premium fade-up delay-1 rounded-xl p-7">
+            <div class="text-gold/25 font-display text-6xl leading-none">"</div>
+            <p class="text-offWhite/62 text-sm mb-6">A D'AFRICA entrega uma experiência premium de verdade.</p>
+            <strong>Diego S.</strong><p class="text-offWhite/35 text-xs">Cliente desde 2023</p>
+          </article>
+          <article class="card-premium fade-up delay-2 rounded-xl p-7">
+            <div class="text-gold/25 font-display text-6xl leading-none">"</div>
+            <p class="text-offWhite/62 text-sm mb-6">Pontualidade, estilo e acabamento perfeito. Recomendo muito.</p>
+            <strong>André L.</strong><p class="text-offWhite/35 text-xs">Cliente fiel</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative py-20 sm:py-28 px-4 sm:px-6 text-center overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(85,231,255,.10),transparent_54%)]"></div>
+      <div class="relative z-10 max-w-2xl mx-auto fade-up">
+        <div class="w-16 h-16 mx-auto mb-8 rounded-full border border-gold/25 grid place-items-center text-gold">
+          <i data-lucide="scissors" style="width:28px;height:28px"></i>
+        </div>
+        <h2 class="font-display text-4xl sm:text-5xl font-black mb-4">Seu próximo visual começa aqui.</h2>
+        <p class="text-offWhite/52 mb-10">Agende seu horário e viva a experiência D'AFRICA.</p>
+        <a data-whatsapp class="btn-premium inline-flex items-center gap-3 px-10 py-4 rounded-lg font-black text-base sm:text-lg">
+          <i data-lucide="message-circle"></i>
+          Agendar agora
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gold/10 py-10 px-4 text-center">
+    <p class="font-display text-xl font-black text-gold mb-2">D'AFRICA</p>
+    <p class="text-offWhite/35 text-xs">© 2026 D'AFRICA Barbearia Premium. Todos os direitos reservados.</p>
+  </footer>
+
+  <a data-whatsapp class="wa-float fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-400 transition" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    const whatsappNumber = "5500000000000";
+    const whatsappText = "Olá, D'AFRICA. Quero agendar um horário na barbearia.";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}`;
+
+    document.querySelectorAll("[data-whatsapp]").forEach((link) => {
+      link.setAttribute("href", whatsappUrl);
+      link.setAttribute("target", "_blank");
+      link.setAttribute("rel", "noopener noreferrer");
+    });
+
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("nav-scrolled", window.scrollY > 60);
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.querySelectorAll(".mobile-link").forEach((link) => {
+      link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>
