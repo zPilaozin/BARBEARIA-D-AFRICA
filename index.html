@@ -44,8 +44,8 @@
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
     }
 
     .container {
@@ -61,6 +61,13 @@
       background: rgba(8, 8, 7, 0.78);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--borda-clara);
+      transition: 0.25s ease;
+    }
+
+    header.scrolled {
+      background: rgba(8, 8, 7, 0.94);
+      border-color: rgba(212, 168, 87, 0.32);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
     }
 
     .nav {
@@ -87,6 +94,7 @@
       color: var(--dourado);
       font-family: var(--serif);
       font-weight: bold;
+      background: linear-gradient(135deg, rgba(212,168,87,.14), transparent), #191816;
     }
 
     .brand strong {
@@ -164,8 +172,8 @@
 
     .hero-bg {
       background-image:
-        linear-gradient(90deg, rgba(8, 8, 7, 0.96), rgba(8, 8, 7, 0.64), rgba(8, 8, 7, 0.24)),
-        linear-gradient(180deg, rgba(8, 8, 7, 0.1), rgba(8, 8, 7, 0.9)),
+        linear-gradient(90deg, rgba(8,8,7,.96), rgba(8,8,7,.64), rgba(8,8,7,.24)),
+        linear-gradient(180deg, rgba(8,8,7,.1), rgba(8,8,7,.9)),
         url("https://images.unsplash.com/photo-1582771498000-8ad44e6c84db?auto=format&fit=crop&w=2400&q=80");
     }
 
@@ -175,8 +183,8 @@
       z-index: -1;
       opacity: 0.32;
       background-image:
-        linear-gradient(135deg, rgba(212, 168, 87, 0.18) 1px, transparent 1px),
-        linear-gradient(45deg, rgba(248, 241, 228, 0.08) 1px, transparent 1px);
+        linear-gradient(135deg, rgba(212,168,87,.18) 1px, transparent 1px),
+        linear-gradient(45deg, rgba(248,241,228,.08) 1px, transparent 1px);
       background-size: 54px 54px, 72px 72px;
       mask-image: linear-gradient(90deg, #000, transparent);
     }
@@ -240,7 +248,7 @@
       padding: 26px;
       border: 1px solid var(--borda-clara);
       border-radius: 8px;
-      background: linear-gradient(135deg, rgba(212, 168, 87, 0.16), transparent), rgba(8, 8, 7, 0.72);
+      background: linear-gradient(135deg, rgba(212,168,87,.16), transparent), rgba(8,8,7,.72);
       backdrop-filter: blur(16px);
       box-shadow: 0 22px 70px rgba(0, 0, 0, 0.3);
     }
@@ -264,7 +272,7 @@
       padding: 12px;
       border: 1px solid var(--borda-clara);
       border-radius: 8px;
-      background: rgba(248, 241, 228, 0.06);
+      background: rgba(248,241,228,.06);
       font-size: 13px;
       font-weight: 800;
     }
@@ -288,6 +296,7 @@
 
     .section-head h2,
     .experience h2,
+    .results-copy h2,
     .cta h2 {
       font-family: var(--serif);
       font-size: clamp(36px, 5vw, 52px);
@@ -297,6 +306,7 @@
 
     .section-head p,
     .experience p,
+    .results-copy p,
     .cta p {
       color: rgba(8, 8, 7, 0.68);
       font-size: 17px;
@@ -328,7 +338,7 @@
       background-position: center;
       overflow: hidden;
       transition: 0.25s ease;
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 22px 70px rgba(0,0,0,.28);
     }
 
     .banner:hover,
@@ -343,7 +353,7 @@
       margin-bottom: 10px;
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(8, 8, 7, 0.52);
+      background: rgba(8,8,7,.52);
       color: var(--dourado);
       font-size: 12px;
       font-weight: 900;
@@ -367,7 +377,7 @@
       padding: 28px;
       border: 1px solid var(--borda-escura);
       border-radius: 8px;
-      background: linear-gradient(135deg, rgba(212, 168, 87, 0.12), transparent), #fffaf0;
+      background: linear-gradient(135deg, rgba(212,168,87,.12), transparent), #fffaf0;
       transition: 0.25s ease;
     }
 
@@ -409,8 +419,8 @@
 
     .parallax-bg {
       background-image:
-        linear-gradient(90deg, rgba(8, 8, 7, 0.94), rgba(8, 8, 7, 0.64)),
-        linear-gradient(180deg, rgba(8, 8, 7, 0.3), rgba(8, 8, 7, 0.96)),
+        linear-gradient(90deg, rgba(8,8,7,.94), rgba(8,8,7,.64)),
+        linear-gradient(180deg, rgba(8,8,7,.3), rgba(8,8,7,.96)),
         url("https://images.unsplash.com/photo-1621645582931-d1d3e6564943?auto=format&fit=crop&w=2000&q=80");
     }
 
@@ -440,7 +450,7 @@
       padding: 18px;
       border: 1px solid var(--borda-clara);
       border-radius: 8px;
-      background: rgba(248, 241, 228, 0.06);
+      background: rgba(248,241,228,.06);
       backdrop-filter: blur(12px);
     }
 
@@ -449,6 +459,169 @@
       font-family: var(--serif);
       font-size: 28px;
       font-weight: 500;
+    }
+
+    .results {
+      background: linear-gradient(135deg, rgba(169,93,58,.10), transparent), #fffaf0;
+      color: var(--preto);
+    }
+
+    .results-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .results-copy p {
+      margin-top: 18px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .stat-card {
+      min-height: 128px;
+      padding: 18px;
+      border: 1px solid var(--borda-escura);
+      border-radius: 8px;
+      background: rgba(248,241,228,.72);
+    }
+
+    .stat-card strong {
+      display: block;
+      color: var(--terracota);
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .stat-card span {
+      display: block;
+      margin-top: 10px;
+      color: rgba(8,8,7,.62);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .comparison-card {
+      padding: 14px;
+      border: 1px solid var(--borda-escura);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(212,168,87,.16), transparent), var(--preto);
+      box-shadow: 0 24px 70px rgba(8,8,7,.18);
+    }
+
+    .comparison-slider {
+      --comparison: 54%;
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+      border-radius: 8px;
+      background: var(--preto);
+      cursor: ew-resize;
+    }
+
+    .comparison-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .comparison-before {
+      background-image: url("https://images.unsplash.com/photo-1654097800183-574ba7368f74?auto=format&fit=crop&w=1200&q=80");
+      filter: grayscale(1) contrast(.82) brightness(.72);
+    }
+
+    .comparison-after {
+      background-image: url("https://images.unsplash.com/photo-1654097800183-574ba7368f74?auto=format&fit=crop&w=1200&q=80");
+      clip-path: inset(0 calc(100% - var(--comparison)) 0 0);
+      filter: saturate(1.06) contrast(1.08);
+    }
+
+    .comparison-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--comparison);
+      z-index: 3;
+      width: 2px;
+      background: var(--dourado);
+      transform: translateX(-50%);
+    }
+
+    .comparison-divider span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(248,241,228,.52);
+      border-radius: 50%;
+      background: rgba(8,8,7,.74);
+      box-shadow: 0 12px 32px rgba(0,0,0,.28);
+      transform: translate(-50%, -50%);
+    }
+
+    .comparison-divider span::before,
+    .comparison-divider span::after {
+      position: absolute;
+      top: 20px;
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid var(--dourado);
+      border-left: 2px solid var(--dourado);
+    }
+
+    .comparison-divider span::before {
+      left: 15px;
+      transform: rotate(-45deg);
+    }
+
+    .comparison-divider span::after {
+      right: 15px;
+      transform: rotate(135deg);
+    }
+
+    .comparison-labels {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .comparison-labels span {
+      padding: 7px 11px;
+      border: 1px solid rgba(248,241,228,.24);
+      border-radius: 999px;
+      color: var(--offwhite);
+      background: rgba(8,8,7,.62);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .comparison-range {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
     }
 
     .flip-grid {
@@ -469,7 +642,7 @@
       height: 100%;
       min-height: 390px;
       transform-style: preserve-3d;
-      transition: transform 0.75s cubic-bezier(0.18, 0.86, 0.28, 1);
+      transition: transform .75s cubic-bezier(.18,.86,.28,1);
     }
 
     .flip-card:hover .flip-inner,
@@ -484,7 +657,7 @@
       overflow: hidden;
       backface-visibility: hidden;
       border: 1px solid var(--borda-escura);
-      box-shadow: 0 20px 54px rgba(8, 8, 7, 0.16);
+      box-shadow: 0 20px 54px rgba(8,8,7,.16);
     }
 
     .flip-front {
@@ -496,7 +669,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 30%, rgba(8, 8, 7, 0.84));
+      background: linear-gradient(180deg, transparent 30%, rgba(8,8,7,.84));
     }
 
     .flip-caption {
@@ -529,7 +702,7 @@
       padding: 28px;
       display: grid;
       align-content: center;
-      background: linear-gradient(135deg, rgba(212, 168, 87, 0.16), transparent), linear-gradient(180deg, #181714, #080807);
+      background: linear-gradient(135deg, rgba(212,168,87,.16), transparent), linear-gradient(180deg, #181714, #080807);
       color: var(--offwhite);
       transform: rotateY(180deg);
     }
@@ -539,7 +712,7 @@
     }
 
     .testimonials {
-      background: linear-gradient(135deg, rgba(65, 81, 61, 0.12), transparent), var(--offwhite);
+      background: linear-gradient(135deg, rgba(65,81,61,.12), transparent), var(--offwhite);
     }
 
     .testimonial {
@@ -562,7 +735,7 @@
     }
 
     .cta-section {
-      background: linear-gradient(135deg, rgba(212, 168, 87, 0.18), transparent), var(--preto);
+      background: linear-gradient(135deg, rgba(212,168,87,.18), transparent), var(--preto);
     }
 
     .cta {
@@ -573,7 +746,7 @@
       padding: 42px;
       border-radius: 8px;
       border: 1px solid var(--borda-clara);
-      background: linear-gradient(135deg, rgba(65, 81, 61, 0.22), transparent), rgba(248, 241, 228, 0.06);
+      background: linear-gradient(135deg, rgba(65,81,61,.22), transparent), rgba(248,241,228,.06);
     }
 
     .cta p {
@@ -623,14 +796,14 @@
       background: #1f6b48;
       color: var(--offwhite);
       font-weight: 900;
-      border: 1px solid rgba(248, 241, 228, 0.24);
+      border: 1px solid rgba(248,241,228,.24);
       animation: pulse 2.8s ease-in-out infinite;
     }
 
     .reveal {
       opacity: 0;
       transform: translateY(24px);
-      transition: 0.65s ease;
+      transition: .65s ease;
     }
 
     .reveal.visible {
@@ -647,11 +820,11 @@
 
     @keyframes pulse {
       0%, 100% {
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32), 0 0 0 0 rgba(31, 107, 72, 0.42);
+        box-shadow: 0 18px 50px rgba(0,0,0,.32), 0 0 0 0 rgba(31,107,72,.42);
       }
 
       50% {
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32), 0 0 0 10px rgba(31, 107, 72, 0);
+        box-shadow: 0 18px 50px rgba(0,0,0,.32), 0 0 0 10px rgba(31,107,72,0);
       }
     }
 
@@ -663,6 +836,7 @@
       .hero-grid,
       .section-head,
       .experience,
+      .results-layout,
       .cta {
         grid-template-columns: 1fr;
       }
@@ -717,8 +891,13 @@
       .service-grid,
       .testimonial-grid,
       .flip-grid,
-      .hero-tags {
+      .hero-tags,
+      .stats-grid {
         grid-template-columns: 1fr;
+      }
+
+      .comparison-slider {
+        min-height: 430px;
       }
 
       .footer {
@@ -739,7 +918,7 @@
 </head>
 
 <body>
-  <header>
+  <header id="header">
     <div class="container nav">
       <a href="#inicio" class="brand">
         <div class="brand-seal">DA</div>
@@ -752,8 +931,8 @@
       <nav class="menu">
         <a href="#servicos">Servicos</a>
         <a href="#experiencia">Experiencia</a>
+        <a href="#resultado">Resultado</a>
         <a href="#galeria">Galeria</a>
-        <a href="#depoimentos">Depoimentos</a>
         <a href="#contato">Contato</a>
       </nav>
 
@@ -846,6 +1025,32 @@
           <div><strong>01</strong><span>Diagnostico rapido do estilo e do formato do rosto.</span></div>
           <div><strong>02</strong><span>Execucao com tecnica, simetria e controle de acabamento.</span></div>
           <div><strong>03</strong><span>Finalizacao com produto, orientacao e proximo agendamento.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" id="resultado">
+      <div class="container results-layout">
+        <div class="results-copy reveal">
+          <span class="eyebrow">Antes e depois</span>
+          <h2>Uma comparacao simples para sentir a mudanca antes de agendar.</h2>
+          <p>Arraste o controle para revelar o acabamento. A ideia e mostrar a diferenca entre um visual apagado e uma finalizacao bem cuidada.</p>
+
+          <div class="stats-grid">
+            <div class="stat-card"><strong class="count-up" data-count="500" data-prefix="+">0</strong><span>cortes entregues</span></div>
+            <div class="stat-card"><strong class="count-up" data-count="4.9" data-decimals="1">0</strong><span>avaliacao media</span></div>
+            <div class="stat-card"><strong class="count-up" data-count="100" data-suffix="%">0</strong><span>foco no acabamento</span></div>
+          </div>
+        </div>
+
+        <div class="comparison-card reveal">
+          <div class="comparison-slider">
+            <div class="comparison-image comparison-before"></div>
+            <div class="comparison-image comparison-after"></div>
+            <div class="comparison-divider"><span></span></div>
+            <div class="comparison-labels"><span>Antes</span><span>Depois</span></div>
+            <input class="comparison-range" type="range" min="8" max="92" value="54" aria-label="Comparar antes e depois" />
+          </div>
         </div>
       </div>
     </section>
@@ -943,18 +1148,27 @@
   <a class="whatsapp-float" href="https://wa.me/5511999999999?text=Ola%2C%20D'AFRICA.%20Quero%20agendar%20um%20horario.">WhatsApp</a>
 
   <script>
+    const header = document.getElementById("header");
+
+    function updateHeader() {
+      header.classList.toggle("scrolled", window.scrollY > 12);
+    }
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+
     const revealElements = document.querySelectorAll(".reveal");
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.14 });
 
-    revealElements.forEach((el) => observer.observe(el));
+    revealElements.forEach((el) => revealObserver.observe(el));
 
     const parallaxItems = document.querySelectorAll("[data-parallax]");
 
@@ -974,6 +1188,58 @@
     updateParallax();
     window.addEventListener("scroll", updateParallax, { passive: true });
     window.addEventListener("resize", updateParallax);
+
+    const counters = document.querySelectorAll(".count-up");
+
+    function formatCounter(el, value) {
+      const decimals = Number(el.dataset.decimals || 0);
+      const prefix = el.dataset.prefix || "";
+      const suffix = el.dataset.suffix || "";
+
+      el.textContent = prefix + value.toFixed(decimals) + suffix;
+    }
+
+    function animateCounter(el) {
+      if (el.dataset.animated === "true") return;
+
+      el.dataset.animated = "true";
+
+      const target = Number(el.dataset.count || 0);
+      const duration = 1200;
+      const start = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+
+        formatCounter(el, target * eased);
+
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach((counter) => counterObserver.observe(counter));
+
+    const range = document.querySelector(".comparison-range");
+    const slider = document.querySelector(".comparison-slider");
+
+    function updateComparison() {
+      slider.style.setProperty("--comparison", range.value + "%");
+    }
+
+    updateComparison();
+    range.addEventListener("input", updateComparison);
   </script>
 </body>
 </html>
